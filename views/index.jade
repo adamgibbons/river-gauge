@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1 River Gauge
+
+  .map
+
+    .site#site1
+    .site#site2
+    .site#site3
+    .site#site4
+
+  .measurements
+    for site in sites
+      .measurement
+        .site-name #{site.siteName}
+        .timestamp #{site.timeStamp}
+        .values #{site.measurementName}: #{site.measurementValue}
