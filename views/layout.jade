@@ -2,6 +2,78 @@ doctype html
 html
   head
     title= title
+
+    meta(charset='utf-8')
+    meta(name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no')
+
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.20.1/mapbox-gl.css' rel='stylesheet')
+
+    script(src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.20.1/mapbox-gl.js')
+
   body
+    #map(style='position:absolute; top:0; bottom:0; width:100%;')
+
     block content
+
+    script.
+      mapboxgl.accessToken = 'pk.eyJ1IjoiYWRhbWdpYmJvbnMiLCJhIjoiY2lvcXJ1OTZ0MDAxaXR6bTUxOGFiOGVxdyJ9.qDPSchYrB1nIyO8J-PPjJQ';
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9', //stylesheet location
+        center: [-74.50, 40], // starting position
+        zoom: 9 // starting zoom
+      });
+
+      map.on('load', function () {
+        map.addSource("markers", {
+          "type": "geojson",
+          "data": {
+              "type": "FeatureCollection",
+              "features": [{
+                  "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [-105.348777, 40.057611]
+                  },
+                  "properties": {
+                      "title": "FOURMILE CANYON CREEK NEAR SUNSHINE, CO",
+                      "marker-symbol": "monument"
+                  }
+              }, {
+                  "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [-105.32625, 40.018666]
+                  },
+                  "properties": {
+                      "title": "FOURMILE CREEK AT ORODELL, CO",
+                      "marker-symbol": "monument"
+                  }
+              }, {
+                  "type": "Feature",
+                  "geometry": {
+                      "type": "Point",
+                      "coordinates": [-105.178875, 40.051651]
+                  },
+                  "properties": {
+                      "title": "BOULDER CREEK AT NORTH 75TH ST. NEAR BOULDER, CO",
+                      "marker-symbol": "harbor"
+                  }
+              }]
+          }
+        });
+
+        map.addLayer({
+          "id": "markers",
+          "type": "symbol",
+          "source": "markers",
+          "layout": {
+            "icon-image": "{marker-symbol}-15",
+            "text-field": "{title}",
+            "text-font": ["Open Sans Semibold", "Arial Unicode MS Bold"],
+            "text-offset": [0, 0.6],
+            "text-anchor": "top"
+          }
+        });
+      });

@@ -3,11 +3,6 @@ var router = express.Router();
 
 var SiteMeasurementResource = require('../resources/site-measurement');
 
-router.get('/api', SiteMeasurementResource.show);
-
-/* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', {});
-});
+router.get('/', SiteMeasurementResource.show);
 
 module.exports = router;

@@ -4,7 +4,7 @@ var database = 'river_gauge';
 var username = 'gibber';
 var password = '';
 
-module.exports = new Sequelize(database, username, password, {
+var sequelize = new Sequelize(database, username, password, {
   host: 'localhost',
   dialect: 'postgres',
   pool: {
@@ -13,3 +13,7 @@ module.exports = new Sequelize(database, username, password, {
     idle: 10000
   }
 });
+
+(require('../models/site-measurement')(sequelize));
+
+module.exports = sequelize;
