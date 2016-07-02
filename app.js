@@ -24,8 +24,6 @@ app.use(require('less-middleware')(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-// ADD API
-// app.use('/', routes);
 app.use('/api', apiRoutes);
 
 // catch 404 and forward to error handler
