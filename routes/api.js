@@ -2,9 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 var StationsResource = require('../resources/stations');
-var SiteMeasurementResource = require('../resources/site-measurement');
+var MeasurementsResource = require('../resources/measurements');
 
-router.get('/', SiteMeasurementResource.show);
+router.get('/', MeasurementsResource.show);
 router.get('/stations', StationsResource.list);
+router.get('/stations/:stationId', StationsResource.show);
+router.get('/stations/:stationId/measurements', MeasurementsResource.list);
 
 module.exports = router;
