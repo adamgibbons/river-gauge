@@ -23,3 +23,9 @@ CREATE TABLE measurements (
 INSERT INTO stations (name, lat, lon, created_at, updated_at) VALUES ('Fourmile Canyon Creek Near Sunshine, CO', -105.348777, 40.057611, NOW(), NOW());
 INSERT INTO stations (name, lat, lon, created_at, updated_at) VALUES ('Fourmile Creek at Orodell, CO', -105.32625, 40.018666, NOW(), NOW());
 INSERT INTO stations (name, lat, lon, created_at, updated_at) VALUES ('Boulder Creek at North 75th St', -105.178875, 40.051651, NOW(), NOW());
+
+INSERT INTO measurements (label, unit, value, station_id, created_at, updated_at) VALUES ('River height', 'ft', 5.1, 1, NOW(), NOW());
+INSERT INTO measurements (label, unit, value, station_id, created_at, updated_at) VALUES ('River height', 'ft', 5.9, 1, NOW(), NOW());
+INSERT INTO measurements (label, unit, value, station_id, created_at, updated_at) VALUES ('River height', 'ft', 6.0, 1, NOW(), NOW());
+INSERT INTO measurements (label, unit, value, station_id, created_at, updated_at) VALUES ('River height', 'ft', 4.9, 2, NOW(), NOW());
+INSERT INTO measurements (label, unit, value, station_id, created_at, updated_at) VALUES ('River height', 'ft', 4.8, 2, NOW(), NOW());

@@ -11,7 +11,7 @@ module.exports = {
     });
   },
 
-  list: function (req, res, next) {
+  listByStationId: function (req, res, next) {
     Measurement.findAll({where: { station_id: req.params.stationId }})
     .then(function (measurements) {
       res.status(200).send({measurements: measurements});
