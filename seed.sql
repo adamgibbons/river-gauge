@@ -1,3 +1,7 @@
+CREATE DATABASE river_gauge;
+
+\c river_gauge
+
 CREATE SEQUENCE stations_id_seq;
 CREATE SEQUENCE measurements_id_seq;
 
