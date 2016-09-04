@@ -14,7 +14,8 @@ var sequelize = new Sequelize(database, username, password, {
   }
 });
 
-(require('../models/site-measurement')(sequelize));
+(require('../models/measurement')(sequelize));
 (require('../models/station')(sequelize));
+(require('../models/associations')(sequelize));
 
 module.exports = sequelize;

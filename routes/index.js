@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var SiteMeasurementResource = require('../resources/site-measurement');
+var SiteMeasurementResource = require('../resources/measurements');
 
 router.get('/api', SiteMeasurementResource.show);
 

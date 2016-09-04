@@ -1,10 +1,11 @@
 var Sequelize = require('sequelize');
 
 module.exports = function (sequelizeConn, options) {
-  sequelizeConn.define('station', {
-    name: Sequelize.STRING,
-    lat: Sequelize.FLOAT,
-    lon: Sequelize.FLOAT,
+  sequelizeConn.define('measurement', {
+    label: Sequelize.TEXT,
+    unit: Sequelize.TEXT,
+    value: Sequelize.FLOAT,
+    station_id: Sequelize.INTEGER,
     createdAt: {
       type: Sequelize.TIME,
       field: 'created_at'
